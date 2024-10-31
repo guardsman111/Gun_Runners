@@ -7,7 +7,7 @@ public class MovePlayer : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 1;
     [SerializeField] private float playerSpeedModifier = 1;
-    public float PlayerSpeedModifier { get; set; }
+    public float PlayerSpeedModifier { get => playerSpeedModifier; set => playerSpeedModifier = value; }
 
     private bool finished = false;
 

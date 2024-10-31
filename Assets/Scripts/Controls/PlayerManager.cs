@@ -10,8 +10,6 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        units.Add(movePlayer.GetComponent<UnitHealth>());
-
         foreach (UnitHealth unit in movePlayer.GetComponentsInChildren<UnitHealth>())
         {
             units.Add(unit);
@@ -22,10 +20,6 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(units.Count <= 0)
-        {
-            movePlayer.PlayerSpeedModifier = 0;
-        }
     }
 
     public void KillUnit(UnitHealth unit)
@@ -33,6 +27,12 @@ public class PlayerManager : MonoBehaviour
         if(units.Contains(unit))
         {
             units.Remove(unit);
+            Debug.Log("Unit Removed");
+        }
+
+        if (units.Count <= 0)
+        {
+            movePlayer.PlayerSpeedModifier = 0;
         }
     }
 }

@@ -6,9 +6,8 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay(Collider collider)
     {
-        Debug.Log("Trigger");
         if(collider.transform.tag == "Player")
         {
             collider.transform.GetComponent<UnitHealth>().TakeDamage(damage);
