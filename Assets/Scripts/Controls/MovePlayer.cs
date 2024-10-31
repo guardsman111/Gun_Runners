@@ -44,18 +44,22 @@ public class MovePlayer : MonoBehaviour
         //}
 
         //If moving left
-        if ((inputPosition.x - mousePressPosition.x) > 0)
+        if ((inputPosition.x - mousePressPosition.x) > 0 && transform.position.x > -1.75)
         {
             float dragSpeed = (inputPosition.x - mousePressPosition.x);
-            moveFloat = 0.25f - Mathf.Clamp(dragSpeed / 300f, 0, 1);
+            moveFloat = -0.25f - Mathf.Clamp(dragSpeed / 300f, 0, 1);
             Debug.Log("Move Left at " + moveFloat.ToString());
         }
         //If moving right
-        if ((inputPosition.x - mousePressPosition.x) < 0)
+        else if ((inputPosition.x - mousePressPosition.x) < 0 && transform.position.x < 1.75)
         {
             float dragSpeed = -(inputPosition.x - mousePressPosition.x);
             moveFloat = 0.25f + Mathf.Clamp(dragSpeed / 300f, 0, 1);
             Debug.Log("Move Right at " + moveFloat.ToString());
+        }
+        else 
+        {
+            moveFloat = 0;
         }
     }
 
